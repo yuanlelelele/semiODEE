@@ -1,0 +1,96 @@
+cpt embedding file: /data/xxin/workspace/CptODEE_new/data/cpt_embeddings_in_bert
+cpt vec length: 34443
+training corpus type: /data/yjl/cpt_prep/train_data/cached_span_sample_without_mlm
+training data length: 10000	testing data length: 268
+learning rate: 3e-05
+warmup_ratio: 0.05
+batch size: 16
+gradient_accumulation_steps: 1
+train_epoch_num: 500
+negative sampled size: 200
+loading configuration file /data/yjl/cpt_prep/pretrain_model/config.json
+Model config BertConfig {
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "type_vocab_size": 2,
+  "vocab_size": 21128
+}
+
+loading weights file /data/yjl/cpt_prep/pretrain_model/pytorch_model.bin
+All model checkpoint weights were used when initializing BertModel.
+
+All the weights of BertModel were initialized from the model checkpoint at /data/yjl/cpt_prep/pretrain_model.
+If your task is similar to the task the model of the ckeckpoint was trained on, you can already use BertModel for predictions without further training.
+step 9 / 625 in total 10000 of epoch 0, train/loss: 2.6860926151275635
+
+step 19 / 625 in total 10000 of epoch 0, train/loss: 3.008500576019287
+
+step 29 / 625 in total 10000 of epoch 0, train/loss: 2.75681471824646
+
+step 39 / 625 in total 10000 of epoch 0, train/loss: 2.6578590869903564
+
+step 49 / 625 in total 10000 of epoch 0, train/loss: 2.533039093017578
+
+step 59 / 625 in total 10000 of epoch 0, train/loss: 2.6101908683776855
+
+step 69 / 625 in total 10000 of epoch 0, train/loss: 2.340754747390747
+
+step 79 / 625 in total 10000 of epoch 0, train/loss: 2.3922934532165527
+
+step 89 / 625 in total 10000 of epoch 0, train/loss: 2.275487184524536
+
+step 99 / 625 in total 10000 of epoch 0, train/loss: 2.372231960296631
+
+************  pause in step : 100, start to test evaluation.  *********
+
+
+test data check! 
+
+F1: -1.00, P: 0.00, R:0.00
+step 109 / 625 in total 10000 of epoch 0, train/loss: 2.4362258911132812
+
+step 119 / 625 in total 10000 of epoch 0, train/loss: 2.0577406883239746
+
+step 129 / 625 in total 10000 of epoch 0, train/loss: 1.8406234979629517
+
+step 139 / 625 in total 10000 of epoch 0, train/loss: 1.6546958684921265
+
+step 149 / 625 in total 10000 of epoch 0, train/loss: 1.6273846626281738
+
+step 159 / 625 in total 10000 of epoch 0, train/loss: 1.3236720561981201
+
+step 169 / 625 in total 10000 of epoch 0, train/loss: 1.2486292123794556
+
+step 179 / 625 in total 10000 of epoch 0, train/loss: 1.8751325607299805
+
+step 189 / 625 in total 10000 of epoch 0, train/loss: 0.8355723023414612
+
+step 199 / 625 in total 10000 of epoch 0, train/loss: 0.6165151000022888
+
+************  pause in step : 200, start to test evaluation.  *********
+
+
+test data check! 
+
+F1: -1.00, P: 0.00, R:0.00
+step 209 / 625 in total 10000 of epoch 0, train/loss: 0.5008065700531006
+
+step 219 / 625 in total 10000 of epoch 0, train/loss: 0.1695227324962616
+
