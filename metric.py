@@ -23,7 +23,7 @@ def strict_acc_old(preds, golds, sample_tag):
 
 
 def metric_span(pred_spans, pred_et_ids, ground_spans, ground_et_ids, sample_tag):
-    golden_num, pred_num, right_num = 0, 0, 0
+    golden_num, pred_num, span_pred_num, right_num = 0, 0, 0, 0
     for sent_pred_spans, sent_pred_et_ids, gd_span, gd_et_id, tag in zip(pred_spans,
                                                                     pred_et_ids,
                                                                     ground_spans,
@@ -33,11 +33,10 @@ def metric_span(pred_spans, pred_et_ids, ground_spans, ground_et_ids, sample_tag
             if 9 not in pred_et:
                 pred_num += 1
 
-        gd_span = [gd_span[0], gd_span[1]-1]
-
         if tag:
             golden_num += 1
             if gd_span in sent_pred_spans:
+                span_pred_num += 1
                 idx = sent_pred_spans.index(gd_span)
                 if gd_et_id in sent_pred_et_ids[idx]:
                     right_num += 1
@@ -45,6 +44,8 @@ def metric_span(pred_spans, pred_et_ids, ground_spans, ground_et_ids, sample_tag
     p = 100.0 * right_num / pred_num if pred_num > 0 else -1
     r = 100.0 * right_num / golden_num if golden_num > 0 else -1
     f = 2 * p * r / (p + r) if (p + r) > 0 else -1
+    print("span pred: {} with golden num: {} and pred_span_num: {}".format(100.0 * span_pred_num / golden_num
+                                                                           if golden_num > 0 else -1, golden_num, span_pred_num))
 
     return p, r, f
 

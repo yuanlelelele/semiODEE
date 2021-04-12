@@ -1,15 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="99c78b03-b3de-4c34-bb90-788d3ab3ee26" name="Default Changelist" comment="" />
+    <list default="true" id="99c78b03-b3de-4c34-bb90-788d3ab3ee26" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataSet/FormatDataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/DataSet/FormatDataset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataSet/cpt_file_load.py" beforeDir="false" afterPath="$PROJECT_DIR$/DataSet/cpt_file_load.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commonCptModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/commonCptModel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_utils/arg_otions.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_utils/arg_otions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/metric.py" beforeDir="false" afterPath="$PROJECT_DIR$/metric.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/pred_save.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/pred_save.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1q09sB8o4fc2hsX7cMhHTJ3hoaE" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -67,20 +82,34 @@
       <updated>1616205844380</updated>
       <workItem from="1616205846773" duration="6103000" />
       <workItem from="1616462173497" duration="32734000" />
-      <workItem from="1616657577779" duration="9599000" />
+      <workItem from="1616657577779" duration="81774000" />
+      <workItem from="1617687746199" duration="26319000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/commonCptModel.py</url>
-          <line>183</line>
-          <option name="timeStamp" value="16" />
+          <line>396</line>
+          <option name="timeStamp" value="58" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -93,6 +122,6 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/semi_crfODEE$train.coverage" NAME="train Coverage Results" MODIFIED="1616662513397" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/semi_crfODEE$train.coverage" NAME="train Coverage Results" MODIFIED="1617091967894" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

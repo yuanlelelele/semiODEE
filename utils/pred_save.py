@@ -68,7 +68,7 @@ def save_preds(record, id2anno_cpt, id2et, outfile):
         tmp_result.append({'ground_et': sample_list[8]})
         tmp_result.append({'sample_tag': sample_list[9]})
 
-    print(tmp_result)
+    # print(tmp_result)
     save_json(tmp_result, outfile)
 
 

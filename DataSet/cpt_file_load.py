@@ -166,24 +166,33 @@ def load_annotated_concepts_new():
 
 def load_cached_samples_for_mlm():
     dev_sample_length = 4
-    cached_sample_dir = os.path.join(config.cached_data_dir, "cached_span_sample_without_mlm")
+    cached_sample_dir = os.path.join(config.cached_data_dir, "cached_sample_with_mlm_for_span")
 
-    inputs = []
+    unlabeled_inputs = []
+    labeled_inputs = []
     for d_file in os.listdir(cached_sample_dir):
-        if d_file != "span_samples_1.pkl":  # span_samples_test span_samples_1
-            continue
         print("d_file: ", d_file)
+        if d_file == "labeled_sample_0_for_span0":  # span_samples_test span_samples_1    labeled_sample_0_without_condition
+            labeled_inputs.extend(torch.load(os.path.join(cached_sample_dir, d_file)))
+            continue
+        if d_file != "unlabeled_sample_0": #or d_file != "unlabeled_sample_1":
+            continue
         file_path = os.path.join(cached_sample_dir, d_file)
-        if os.path.getsize(file_path) > 0:
-            inputs.extend(pkl._load(file_path))
-    # torch.save(inputs, os.path.join(cached_sample_dir, "inputs_for_check"))
+        # if os.path.getsize(file_path) > 0:
+        #     unlabeled_inputs.extend(torch.load(file_path)[:10000])
 
-    # random.shuffle(inputs)
+    # ll = len(labeled_inputs)-1
+    # mix_inputs = []
+    # for i in range(len(unlabeled_inputs)):   # len(labeled_inputs)
+    #     mix_inputs.extend(labeled_inputs[i%ll : (i+9)%ll])
+    #     mix_inputs.append(unlabeled_inputs[i])
+
+    # random.shuffle(mix_inputs)
     # random.seed(233)
-    # random.shuffle(inputs)
-    print("total sample length : {}".format(len(inputs)))
+    # random.shuffle(mix_inputs)
+    print("total sample length : {}".format(len(labeled_inputs)))
 
-    return inputs, cached_sample_dir
+    return labeled_inputs, cached_sample_dir
 
 
 def load_cached_predACE_samples():

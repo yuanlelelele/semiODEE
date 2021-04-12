@@ -21,7 +21,7 @@ def add_para_options(parser):
     # model training process
     parser.add_argument('-mask_ratio', type=int, default=0.15)
     parser.add_argument('-verb_mask_ratio', type=int, default=0.05)
-    parser.add_argument('-add_mlm_object', type=bool, default=False)
+    parser.add_argument('-add_mlm_object', type=bool, default=True)
     parser.add_argument('-evaluate_during_training', default=False)
     parser.add_argument('-et_num', type=int, default=2000,
                         help="The minimum number for each event type samples in total samples.")
@@ -38,14 +38,14 @@ def add_para_options(parser):
     parser.add_argument('-trigger_max_length', type=int, default=5)
     parser.add_argument('-random_cpt_num', type=int, default=200)
     parser.add_argument('-cpt_num', type=int)
-    parser.add_argument('-span_len', type=int, default=3)
+    parser.add_argument('-span_len', type=int, default=4)
     parser.add_argument('-cpt_max_num', type=int, default=5)
     parser.add_argument('-span_max_cpt_num', type=int, default=40)
     parser.add_argument('-neg_span_max_num', type=int, default=100)
     parser.add_argument('-test_cpt_max_num', type=int, default=100)
-    parser.add_argument('-train_batch_size', type=int, default=32)
+    parser.add_argument('-train_batch_size', type=int, default=16)
     parser.add_argument('-dev_batch_size', type=int, default=32)
-    parser.add_argument('-test_batch_size', type=int, default=32)
+    parser.add_argument('-test_batch_size', type=int, default=16)
     parser.add_argument('-per_gpu_train_batch_size', type=int, default=32)
     parser.add_argument('-neg_ratio', type=int, default=6)
     parser.add_argument('-neg_sample_seed', type=int, default=233)
@@ -56,6 +56,7 @@ def add_para_options(parser):
 
     parser.add_argument('-embedding_dim', type=int, default=768)
     parser.add_argument('-hidden_size', type=int, default=400)
+    parser.add_argument('-span_hidden_size', type=int, default=128)
     parser.add_argument('-out_size', type=int, default=200)
     parser.add_argument('-token_size', type=int, default=21128)
 
@@ -64,7 +65,7 @@ def add_para_options(parser):
     parser.add_argument("--log_eps", default=1e-6, type=float, help="Epsilon for log computation.")
     parser.add_argument('-scale', type=int, default=np.sqrt(768))
     parser.add_argument('-hidden_dropout_rate', default=0.1)
-    parser.add_argument('-margin_value', default=10)
+    parser.add_argument('-margin_value', default=5)
     parser.add_argument('-cpt_margin_value', default=0.8)
     parser.add_argument('-seed', type=int, default=2020, help="random seed for initialization")
     parser.add_argument('-shuffle_seed_1', type=int, default=477)
@@ -72,7 +73,7 @@ def add_para_options(parser):
 
     # optimizer hyper parameter
     parser.add_argument('-weight_decay', default=0.0, type=float, help="Weight decay if we apply some.")
-    parser.add_argument('-lr', type=float, default=0.00005, help="The initial learning rate for Adam.")
+    parser.add_argument('-lr', type=float, default=0.00001, help="The initial learning rate for Adam.")
     parser.add_argument("--adam_epsilon", default=1e-6, type=float, help="Epsilon for Adam optimizer.")
     parser.add_argument("--adam_beta1", default=0.9, type=float, help="BETA1 for Adam optimizer.")
     parser.add_argument("--adam_beta2", default=0.98, type=float, help="BETA2 for Adam optimizer.")
@@ -80,17 +81,17 @@ def add_para_options(parser):
     parser.add_argument("--warmup_ratio", default=0.05, type=int, help="Linear warmup ratio over warmup_steps.")
 
     parser.add_argument("--max_grad_norm", default=5.0, type=float, help="Max gradient norm.")
-    parser.add_argument("--train_epoch_num", default=5, type=int, help="Total number of training epochs to perform.")
+    parser.add_argument("--train_epoch_num", default=10, type=int, help="Total number of training epochs to perform.")
     parser.add_argument("--max_steps", default=-1,type=int,
                         help="If > 0: set total number of training steps to perform. Override num_train_epochs.")
     parser.add_argument('-logging_steps', type=int, default=4,
                         help="Number of eval model and save model.")
-    parser.add_argument('-gradient_accumulation_steps', type=int, default=1,
+    parser.add_argument('-gradient_accumulation_steps', type=int, default=4,
                         help="Number of updates steps to accumulate before performing a backward/update pass.")
-    parser.add_argument('-gradient_average', type=int, default=1)
-    parser.add_argument('-train_record_steps', type=int, default=20)
-    parser.add_argument('-dev_record_steps', type=int, default=200)
-    parser.add_argument('-test_record_steps', type=int, default=200)
+    parser.add_argument('-gradient_average', type=int, default=4)
+    parser.add_argument('-train_record_steps', type=int, default=64)
+    parser.add_argument('-dev_record_steps', type=int, default=512)
+    parser.add_argument('-test_record_steps', type=int, default=512)
 
     parser.add_argument("--per_gpu_train_batch_size", default=16, type=int,
                         help="Batch size per GPU/CPU for training.")

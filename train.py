@@ -70,15 +70,16 @@ def train(args):
             results = model(token_ids=current_batch["input_ids"].to(device),
                              type_ids=current_batch["input_segment_ids"].to(device),
                              mask_ids=current_batch["input_mask"].to(device),
-                             anchor_target_idx=None,
-                             anchor_target_labels=None,
-                             anchor_target_mask=None,
+                             anchor_target_idx= current_batch["target_idx"].to(device),    # current_batch["target_idx"].to(device)
+                             anchor_target_labels= current_batch["target_mask"].to(device), # current_batch["target_mask"].to(device)
+                             anchor_target_mask= current_batch["target_label"].to(device),   # current_batch["target_label"].to(device)
                              anchor_masks=current_batch["anchor_masks"].to(device),
                              anchor_span_ids=current_batch["anchor_span_ids"].to(device),
                              pos_span_masks=current_batch["pos_span_masks"].to(device),
                              neg_span_masks=current_batch["neg_span_masks"].to(device),
                              span_cpt_idx=current_batch["span_cpt_idx"].to(device),
-                             span_cpt_masks=current_batch["span_cpt_masks"].to(device))
+                             span_cpt_masks=current_batch["span_cpt_masks"].to(device),
+                             transition_masks = current_batch["transition_masks"].to(device))
             loss = results["loss"]
 
             if n_gpu > 1:
@@ -96,7 +97,7 @@ def train(args):
                 scheduler.step()
                 model.zero_grad()
 
-                ave_loss = float(ave_loss) / args.gradient_accumulation_steps
+                # ave_loss = float(ave_loss) / args.gradient_accumulation_steps
                 current_print_loss = ave_loss
                 ave_loss = 0
 
@@ -127,6 +128,7 @@ def train(args):
                                 mask_ids=current_batch["input_mask"].to(device),
                                 span_cpt_idx=current_batch["span_cpt_idx"].to(device),
                                 span_cpt_masks=current_batch["span_cpt_masks"].to(device),
+                                transition_masks=current_batch["transition_masks"].to(device),
                                 evaluate=True)
 
                 best_path_list = results["best_path_list"]
@@ -182,7 +184,7 @@ def main():
 
     args = parser.parse_args()
 
-    os.environ['CUDA_VISIBLE_DEVICES'] = '1'
+    os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 
     # Setup logging
     logging.basicConfig(
